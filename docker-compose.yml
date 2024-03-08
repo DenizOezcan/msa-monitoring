@@ -1,0 +1,15 @@
+version: '2'
+services:
+  message-server:
+    container_name: msa-monitoring
+    build:
+      context: docker-msa-monitoring
+      dockerfile: Dockerfile
+    image: msa-monitoring:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-cloud-network
+networks:
+  spring-cloud-network:
+    driver: bridge
