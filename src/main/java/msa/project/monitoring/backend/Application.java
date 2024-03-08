@@ -1,13 +1,13 @@
-package at.msa.project.one;
+package msa.project.monitoring.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OneApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OneApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

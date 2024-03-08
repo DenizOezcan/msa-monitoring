@@ -1,10 +1,10 @@
-package at.msa.project.one;
+package msa.project.monitoring.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OneApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
