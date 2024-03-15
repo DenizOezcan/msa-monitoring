@@ -1,15 +1,30 @@
 version: '2'
+
 services:
-  message-server:
-    container_name: msa-monitoring
-    build:
-      context: docker-msa-monitoring
-      dockerfile: Dockerfile
-    image: msa-monitoring:latest
+  spring-api:
+    build: .
     ports:
       - "8080:8080"
     networks:
       - spring-cloud-network
+
+  grafana:
+    image: grafana/grafana-enterprise
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
 networks:
   spring-cloud-network:
     driver: bridge
+volumes:
+  monitoring-project:
